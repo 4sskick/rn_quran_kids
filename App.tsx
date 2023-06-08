@@ -6,12 +6,10 @@
  */
 
 import {NavigationContainer} from '@react-navigation/native';
-import {Container, NativeBaseProvider} from 'native-base';
+import {NativeBaseProvider} from 'native-base';
 import React, {useEffect} from 'react';
-import {StyleSheet} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AuthStackNav from './src/presenter/custom/AuthStack';
 
 const App = () => {

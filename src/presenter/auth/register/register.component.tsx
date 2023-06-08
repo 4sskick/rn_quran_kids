@@ -1,24 +1,27 @@
-import {Component} from 'react';
-import {Image, SafeAreaView, TextInput, TouchableOpacity} from 'react-native';
-import styles from './login.style';
-import {View, Text} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {Component, ReactNode} from 'react';
 import {RootStackParamList} from '../../../util/IRootParamsNavigation';
-import {HeaderBackground} from '../../custom/component/index';
+import {
+  Image,
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
+import {View} from 'native-base';
+import styles from './register.style';
+import {HeaderBackground} from '../../custom/component';
 
-interface LoginProps
-  extends NativeStackScreenProps<RootStackParamList, 'login'> {}
+interface RegisterProps
+  extends NativeStackScreenProps<RootStackParamList, 'register'> {}
 
-class Login extends Component<LoginProps> {
+class Register extends Component<RegisterProps> {
   render() {
-    const {route, navigation} = this.props;
-
     return (
       <SafeAreaView style={styles.container}>
         <HeaderBackground
-          headerText={route.params.name}
-          headerTextSub="Pastikan kamu sudah punya akun"
-          headerTextSubOpt="Sebelumnya"
+          headerText="Daftar"
+          headerTextSub="Lengkapi isian untuk mendaftar"
         />
 
         {/* container */}
@@ -52,12 +55,30 @@ class Login extends Component<LoginProps> {
               />
             </TouchableOpacity>
           </View>
-        </View>
 
-        {/* button action */}
+          <View>
+            <Text style={styles.txtEmail}>Ulangi Kata Sandi</Text>
+            <TextInput
+              style={[styles.textInput]}
+              placeholder="ulangi kata sandi kamu"
+              placeholderTextColor="#b2b2b2"
+              value={''}
+            />
+            <TouchableOpacity style={styles.iconSandi}>
+              <Image
+                source={require('../../../assets/images/eye-hide.png')}
+                style={{
+                  height: 20,
+                  width: 20,
+                  tintColor: '#b2b2b2',
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
       </SafeAreaView>
     );
   }
 }
 
-export default Login;
+export default Register;

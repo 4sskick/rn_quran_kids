@@ -28,7 +28,11 @@ class Auth extends React.Component<AuthProps> {
           <Text style={styles.txtWelcome}>Selamat Datang</Text>
           <Text style={styles.txtDesc}>Ini Description</Text>
 
-          <TouchableOpacity style={styles.btnSignup}>
+          <TouchableOpacity
+            style={styles.btnSignup}
+            onPress={() => {
+              navigation.navigate('register');
+            }}>
             <Text style={styles.txtSignup}>Daftar</Text>
           </TouchableOpacity>
           <TouchableOpacity

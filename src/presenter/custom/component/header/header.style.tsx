@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
     bottom: 50,
     left: 30,
   },
-  txtHeaderMasuk: {
+  txtHeader: {
     color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
   },
-  txtIsian: {
+  txtHeaderIsian: {
     color: '#fff',
     fontSize: 12,
     fontWeight: '400',
@@ -50,6 +50,17 @@ const styles = StyleSheet.create({
     right: 50,
     top: 50,
   },
+  txtConfirm: {
+    color: '#000',
+    marginLeft: 30,
+    fontWeight: '500',
+    marginTop: 10,
+  },
+  iconConfirm: {
+    position: 'absolute',
+    right: 50,
+    top: 50,
+  },
   btnDaftar: {
     backgroundColor: '#eeeeee',
     height: 50,
@@ -60,20 +71,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 20,
   },
-  btnLupa: {
-    width: 100,
-    height: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'flex-end',
-    marginRight: 30,
-    marginTop: 10,
+  txtDaftar: {
+    color: '#c0c0c0',
+    fontWeight: '500',
+    fontSize: 15,
   },
-  txtForgot: {
+  txtPrivacy: {
+    textAlign: 'center',
     fontSize: 10,
-    textDecorationLine: 'underline',
-    width: 100,
-    marginLeft: 20,
+    marginTop: 30,
+    paddingHorizontal: 40,
   },
   viewLogin: {
     flexDirection: 'row',
@@ -118,11 +125,6 @@ const styles = StyleSheet.create({
   passwordContainer: {
     position: 'relative',
   },
-  txtConfirm: {
-    color: '#000',
-    marginLeft: 30,
-    fontWeight: '500',
-    marginTop: 10,
-  },
 });
+
 export default styles;
