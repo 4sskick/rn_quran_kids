@@ -5,13 +5,46 @@ import {View, Text} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../util/IRootParamsNavigation';
 import {HeaderBackground} from '../../custom/component/index';
+import loginService from './login.service';
 
 interface LoginProps
   extends NativeStackScreenProps<RootStackParamList, 'login'> {}
 
-class Login extends Component<LoginProps> {
+interface State {
+  email: string;
+  password: string;
+  error: string | null;
+}
+
+class Login extends Component<LoginProps, State> {
+  constructor(props: LoginProps) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      error: null,
+    };
+  }
+
+  handleLogin = async () => {
+    const {email, password} = this.state;
+
+    try {
+      await loginService.doLogin(email, password);
+
+      if (loginService.isAuthenticated()) {
+        console.log(`authenticated!`);
+      }
+    } catch (err: any) {
+      console.log(`Error: ${err}`);
+
+      this.setState({error: err.message});
+    }
+  };
+
   render() {
     const {route, navigation} = this.props;
+    const {error, email, password} = this.state;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -29,7 +62,8 @@ class Login extends Component<LoginProps> {
               style={[styles.textInput]}
               placeholder="Alamat email kamu"
               placeholderTextColor="#b2b2b2"
-              value={''}
+              onChangeText={val => this.setState({email: val})}
+              value={email}
             />
           </View>
 
@@ -39,7 +73,8 @@ class Login extends Component<LoginProps> {
               style={[styles.textInput]}
               placeholder="kata sandi kamu"
               placeholderTextColor="#b2b2b2"
-              value={''}
+              onChangeText={val => this.setState({password: val})}
+              value={password}
             />
             <TouchableOpacity style={styles.iconSandi}>
               <Image
@@ -51,6 +86,24 @@ class Login extends Component<LoginProps> {
                 }}
               />
             </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log('Forgot')}
+              style={styles.btnLupa}>
+              <Text style={styles.txtForgot}>Lupa kata sandi?</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.btnDaftar, {backgroundColor: '#419489'}]}
+              onPress={this.handleLogin}>
+              <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 15}}>
+                Masuk
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.viewLogin}>
+            <Text style={styles.txtAkun}>{error}</Text>
           </View>
         </View>
 
