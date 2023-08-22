@@ -1,4 +1,4 @@
-class LoginService {
+class LoginService extends AuthService {
   private authenticated: boolean = false;
 
   doLogin(email: string, password: string): Promise<boolean> {

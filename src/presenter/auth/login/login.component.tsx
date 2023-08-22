@@ -87,6 +87,7 @@ class Login extends Component<LoginProps, State> {
               />
             </TouchableOpacity>
 
+            {/* button action */}
             <TouchableOpacity
               onPress={() => console.log('Forgot')}
               style={styles.btnLupa}>
@@ -106,8 +107,6 @@ class Login extends Component<LoginProps, State> {
             <Text style={styles.txtAkun}>{error}</Text>
           </View>
         </View>
-
-        {/* button action */}
       </SafeAreaView>
     );
   }

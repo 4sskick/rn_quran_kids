@@ -15,8 +15,27 @@ import {HeaderBackground} from '../../custom/component';
 interface RegisterProps
   extends NativeStackScreenProps<RootStackParamList, 'register'> {}
 
-class Register extends Component<RegisterProps> {
+interface State {
+  email: string;
+  password: string;
+  retype_password: string;
+  error: string | null;
+}
+class Register extends Component<RegisterProps, State> {
+  constructor(props: RegisterProps) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      retype_password: '',
+      error: null,
+    };
+  }
+
   render() {
+    const {route, navigation} = this.props;
+    const {email, password, retype_password} = this.state;
+
     return (
       <SafeAreaView style={styles.container}>
         <HeaderBackground
@@ -32,7 +51,8 @@ class Register extends Component<RegisterProps> {
               style={[styles.textInput]}
               placeholder="Alamat email kamu"
               placeholderTextColor="#b2b2b2"
-              value={''}
+              onChangeText={val => this.setState({email: val})}
+              value={email}
             />
           </View>
 
@@ -42,7 +62,8 @@ class Register extends Component<RegisterProps> {
               style={[styles.textInput]}
               placeholder="kata sandi kamu"
               placeholderTextColor="#b2b2b2"
-              value={''}
+              onChangeText={val => this.setState({password: val})}
+              value={password}
             />
             <TouchableOpacity style={styles.iconSandi}>
               <Image
@@ -62,7 +83,8 @@ class Register extends Component<RegisterProps> {
               style={[styles.textInput]}
               placeholder="ulangi kata sandi kamu"
               placeholderTextColor="#b2b2b2"
-              value={''}
+              onChangeText={val => this.setState({retype_password: val})}
+              value={retype_password}
             />
             <TouchableOpacity style={styles.iconSandi}>
               <Image
@@ -73,6 +95,36 @@ class Register extends Component<RegisterProps> {
                   tintColor: '#b2b2b2',
                 }}
               />
+            </TouchableOpacity>
+          </View>
+
+          {/* button action */}
+          <TouchableOpacity
+            style={[
+              styles.btnDaftar,
+              {
+                backgroundColor: '#419489',
+              },
+            ]}
+            onPress={() => {}}>
+            <Text
+              style={{
+                color: '#fff',
+                fontWeight: 'bold',
+                fontSize: 15,
+              }}>
+              Daftar
+            </Text>
+          </TouchableOpacity>
+          <Text style={styles.txtPrivacy}>
+            Dengan daftar atau masuk, Anda menerima syarat dan ketentuan serta
+            kebijakan privasi
+          </Text>
+          <View style={styles.viewLogin}>
+            <Text style={styles.txtAkun}>Sudah Punya akun ?</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('login', {name: ''})}>
+              <Text style={styles.txtMasuk}>Yuk masuk</Text>
             </TouchableOpacity>
           </View>
         </View>
