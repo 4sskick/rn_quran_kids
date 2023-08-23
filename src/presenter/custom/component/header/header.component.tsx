@@ -1,8 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import styles from './header.style';
 import {Component} from 'react';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../../../util/IRootParamsNavigation';
 
 interface HeaderProps {
   headerText: string;

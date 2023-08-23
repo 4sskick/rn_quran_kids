@@ -1,4 +1,4 @@
-abstract class AuthService {
+export abstract class AuthService {
   async doLogin(email: string, password: string): Promise<boolean> {
     return false;
   }

@@ -1,3 +1,5 @@
+import {AuthService} from '../auth.service';
+
 class RegisterService extends AuthService {
   doRegister(
     email: string,

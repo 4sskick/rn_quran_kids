@@ -1,3 +1,5 @@
+import {AuthService} from '../auth.service';
+
 class ForgotService extends AuthService {
   doForgotPassword(email: string): Promise<boolean> {
     return new Promise((resolve, reject) => {

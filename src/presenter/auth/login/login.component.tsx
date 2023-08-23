@@ -89,7 +89,7 @@ class Login extends Component<LoginProps, State> {
 
             {/* button action */}
             <TouchableOpacity
-              onPress={() => console.log('Forgot')}
+              onPress={() => navigation.navigate('forgotpassword')}
               style={styles.btnLupa}>
               <Text style={styles.txtForgot}>Lupa kata sandi?</Text>
             </TouchableOpacity>

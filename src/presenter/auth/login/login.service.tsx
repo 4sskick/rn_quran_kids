@@ -1,3 +1,5 @@
+import {AuthService} from '../auth.service';
+
 class LoginService extends AuthService {
   private authenticated: boolean = false;
 
