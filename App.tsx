@@ -12,6 +12,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import AuthStackNav from './src/presenter/custom/AuthStack';
 import 'react-native-devsettings';
+import DashboardStackNav from './src/presenter/custom/DashboardStack';
 
 const App = () => {
   // if (__DEV__) {
@@ -28,6 +29,7 @@ const App = () => {
     <NavigationContainer>
       <NativeBaseProvider>
         <AuthStackNav />
+        {/* <DashboardStackNav /> */}
       </NativeBaseProvider>
     </NavigationContainer>
   );

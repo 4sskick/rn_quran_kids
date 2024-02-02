@@ -1,6 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {auth, forgotpassword, login, register} from '../../presenter/index';
+import {auth, forgotpassword, login, register} from '..';
 import {RootStackParamList} from '../../util/IRootParamsNavigation';
 
 interface Props {}

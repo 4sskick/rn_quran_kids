@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  btnDaftar: {
+  btnForgot: {
     backgroundColor: '#eeeeee',
     height: 50,
     width: '85%',
@@ -40,6 +40,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     marginTop: 20,
+  },
+  viewError: {
+    flexDirection: 'row',
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  txtError: {
+    fontSize: 12,
+    color: '#b13330',
+    fontWeight: 'bold',
   },
 });
 

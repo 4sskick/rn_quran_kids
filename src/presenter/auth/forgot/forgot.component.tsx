@@ -6,6 +6,9 @@ import {HeaderBackground} from '../../custom/component';
 import styles from './forgot.style';
 import {RootStackParamList} from '../../../util/IRootParamsNavigation';
 import {Text, View} from 'native-base';
+import forgotService from './forgot.service';
+import Dialog from '../../custom/component/dialog/dialog.component';
+import {setTSpan} from 'react-native-svg/lib/typescript/lib/extract/extractText';
 
 interface ForgotPasswordProps
   extends NativeStackScreenProps<RootStackParamList, 'forgotpassword'> {}
@@ -13,6 +16,7 @@ interface ForgotPasswordProps
 interface State {
   email: string;
   error: string | null;
+  isShowDialog: boolean;
 }
 
 class ForgotPassword extends Component<ForgotPasswordProps, State> {
@@ -22,11 +26,24 @@ class ForgotPassword extends Component<ForgotPasswordProps, State> {
     this.state = {
       email: '',
       error: null,
+      isShowDialog: false,
     };
   }
 
+  handleForgotPassword = async () => {
+    const {email} = this.state;
+    try {
+      await forgotService.doForgotPassword(email).then(() => {
+        this.setState({error: null, isShowDialog: true});
+      });
+    } catch (err: any) {
+      this.setState({error: err.message});
+    }
+  };
+
   render() {
     const {navigation} = this.props;
+    const {email, error, isShowDialog} = this.state;
     return (
       <SafeAreaView style={styles.container}>
         <HeaderBackground
@@ -41,17 +58,32 @@ class ForgotPassword extends Component<ForgotPasswordProps, State> {
               placeholder="Alamat email kamu"
               placeholderTextColor="#b2b2b2"
               onChangeText={val => this.setState({email: val})}
-              value={'email'}
+              value={email}
             />
           </View>
 
           <TouchableOpacity
-            onPress={() => console.log('lupa!!')}
-            style={[styles.btnDaftar, {backgroundColor: '#419489'}]}>
+            onPress={this.handleForgotPassword}
+            style={[styles.btnForgot, {backgroundColor: '#419489'}]}>
             <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 15}}>
               Kirim
             </Text>
           </TouchableOpacity>
+
+          <View style={styles.viewError}>
+            <Text style={styles.txtError}>{error}</Text>
+
+            <Dialog
+              isVisible={isShowDialog}
+              title={null}
+              subtitle={null}
+              content={'Content dialog'}
+              onClose={() => {
+                console.log(`closed from dialog`);
+                this.setState({isShowDialog: false});
+              }}
+            />
+          </View>
         </View>
       </SafeAreaView>
     );

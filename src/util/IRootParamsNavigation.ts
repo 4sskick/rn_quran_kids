@@ -6,4 +6,11 @@ export type RootStackParamList = {
   login: {name: string};
   register: undefined;
   forgotpassword: undefined;
+  dashboard: undefined;
+};
+
+export type RootStackBottomTabParamList = {
+  home: undefined;
+  quran: undefined;
+  quiz: undefined;
 };
