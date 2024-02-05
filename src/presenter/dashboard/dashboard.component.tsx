@@ -1,17 +1,10 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {
-  RootStackBottomTabParamList,
-  RootStackParamList,
-} from '../../util/IRootParamsNavigation';
+import {RootStackBottomTabParamList} from '../../util/IRootParamsNavigation';
 import React from 'react';
 import {SafeAreaView} from 'react-native';
 import styles from './dashboard.style';
-import {
-  BottomTabScreenProps,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
-import {View} from 'native-base';
-import {Text} from 'react-native-svg';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+
+import {View, Text} from 'react-native';
 
 // interface DashboardProps extends NativeStackScreenProps<RootStackParamList, 'dashboard'>{}
 interface DashboardProps

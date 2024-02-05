@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {auth, forgotpassword, login, register} from '..';
 import {RootStackParamList} from '../../util/IRootParamsNavigation';
+import DashboardStackNav from './DashboardStack';
 
 interface Props {}
 
@@ -15,6 +16,7 @@ class AuthStackNav extends React.Component<Props> {
         <AuthStack.Screen name={'login'} component={login} />
         <AuthStack.Screen name={'register'} component={register} />
         <AuthStack.Screen name={'forgotpassword'} component={forgotpassword} />
+        <AuthStack.Screen name={'dashboard'} component={DashboardStackNav} />
       </AuthStack.Navigator>
     );
   }

@@ -13,7 +13,7 @@ class LoginService extends AuthService {
           this.authenticated = false;
           reject(new Error('Invalid Credential'));
         }
-      }, 1000);
+      }, 500);
     });
   }
 

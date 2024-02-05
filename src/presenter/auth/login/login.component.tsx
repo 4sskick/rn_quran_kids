@@ -34,6 +34,9 @@ class Login extends Component<LoginProps, State> {
 
       if (loginService.isAuthenticated()) {
         console.log(`authenticated!`);
+        this.setState({error: null}, () => {
+          this.props.navigation.navigate('dashboard');
+        });
       }
     } catch (err: any) {
       console.log(`Error: ${err}`);
