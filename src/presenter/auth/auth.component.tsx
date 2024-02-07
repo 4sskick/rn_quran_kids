@@ -1,6 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {Image, SafeAreaView, TouchableOpacity, View} from 'react-native';
+import {Text} from '@ui-kitten/components';
 import {RootStackParamList} from '../../util/IRootParamsNavigation';
 import styles from './auth.style';
 

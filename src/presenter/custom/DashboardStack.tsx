@@ -13,8 +13,13 @@ class DashboardStackNav extends React.Component<props> {
     return (
       <DashboardStack.Navigator
         detachInactiveScreens={true}
-        screenOptions={{headerShown: false, tabBarActiveTintColor: '#009788'}}
-        sceneContainerStyle={{flex: 1, backgroundColor: 'red'}}>
+        screenOptions={{headerShown: false}}
+        safeAreaInsets={{bottom: 12}}
+        sceneContainerStyle={{
+          flex: 1,
+          borderColor: 'white',
+          borderWidth: 16,
+        }}>
         <DashboardStack.Screen
           name={'home'}
           component={home}
@@ -24,8 +29,8 @@ class DashboardStackNav extends React.Component<props> {
                 <Image
                   source={require('../../assets/images/home.png')}
                   style={{
-                    height: 20,
-                    width: 20,
+                    height: 25,
+                    width: 25,
                     tintColor: focused ? '#009788' : '#b2b2b2',
                   }}
                 />
@@ -42,9 +47,10 @@ class DashboardStackNav extends React.Component<props> {
                 <Image
                   source={require('../../assets/images/quiz.png')}
                   style={{
-                    height: 20,
-                    width: 20,
-                    tintColor: focused ? '#009788' : '#b2b2b2',
+                    height: 50,
+                    width: 50,
+                    marginBottom: 20,
+                    tintColor: focused ? '#009788' : '#B83B5E',
                   }}
                 />
               );
@@ -60,8 +66,8 @@ class DashboardStackNav extends React.Component<props> {
                 <Image
                   source={require('../../assets/images/quran.png')}
                   style={{
-                    height: 20,
-                    width: 20,
+                    height: 25,
+                    width: 25,
                     tintColor: focused ? '#009788' : '#b2b2b2',
                   }}
                 />

@@ -5,14 +5,13 @@
  * @format
  */
 
-import {NavigationContainer} from '@react-navigation/native';
-import {NativeBaseProvider} from 'native-base';
 import React, {useEffect} from 'react';
+import {ApplicationProvider} from '@ui-kitten/components';
+import * as eva from '@eva-design/eva';
+import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
-
 import AuthStackNav from './src/presenter/custom/AuthStack';
 import 'react-native-devsettings';
-import DashboardStackNav from './src/presenter/custom/DashboardStack';
 
 const App = () => {
   // if (__DEV__) {
@@ -27,10 +26,9 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <NativeBaseProvider>
+      <ApplicationProvider {...eva} theme={eva.light}>
         <AuthStackNav />
-        {/* <DashboardStackNav /> */}
-      </NativeBaseProvider>
+      </ApplicationProvider>
     </NavigationContainer>
   );
 };

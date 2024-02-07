@@ -15,7 +15,13 @@ class Dashboard extends React.Component<DashboardProps> {
     return (
       <SafeAreaView style={styles.container}>
         <View>
-          <Text>INI DASHBOARD</Text>
+          <Text>widget achievement</Text>
+        </View>
+        <View>
+          <Text>widget list chapter ayat to add from wallet</Text>
+        </View>
+        <View>
+          <Text>widget deck collective of chapter ayat </Text>
         </View>
       </SafeAreaView>
     );

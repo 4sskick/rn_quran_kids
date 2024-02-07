@@ -6,9 +6,9 @@ import {
   SafeAreaView,
   Text,
   TextInput,
+  View,
   TouchableOpacity,
 } from 'react-native';
-import {View} from 'native-base';
 import styles from './register.style';
 import {HeaderBackground} from '../../custom/component';
 

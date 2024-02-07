@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginTop: 40,
-    color: '#424242',
   },
   txtDesc: {
     textAlign: 'center',

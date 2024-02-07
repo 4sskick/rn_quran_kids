@@ -1,14 +1,18 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {SafeAreaView, TextInput, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  View,
+} from 'react-native';
 
 import {Component} from 'react';
 import {HeaderBackground} from '../../custom/component';
 import styles from './forgot.style';
 import {RootStackParamList} from '../../../util/IRootParamsNavigation';
-import {Text, View} from 'native-base';
 import forgotService from './forgot.service';
 import Dialog from '../../custom/component/dialog/dialog.component';
-import {setTSpan} from 'react-native-svg/lib/typescript/lib/extract/extractText';
 
 interface ForgotPasswordProps
   extends NativeStackScreenProps<RootStackParamList, 'forgotpassword'> {}
