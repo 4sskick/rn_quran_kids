@@ -13,4 +13,6 @@ export type RootStackBottomTabParamList = {
   home: undefined;
   quran: undefined;
   quiz: undefined;
+
+  deck: undefined;
 };

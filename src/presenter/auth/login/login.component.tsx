@@ -26,6 +26,32 @@ class Login extends Component<LoginProps, State> {
     };
   }
 
+  setInput = (setter: keyof State) => {
+    // takes a value and an optional callback function
+    return (val: string | null, callback?: () => void) => {
+      //doing update state by preserve a dynamic key of setState
+      //if setter is 'email', it is equivalent to ({email: val})
+
+      console.log(`gonna update the ${setter} with value ${val}`);
+
+      const updateState = () => ({
+        [setter]: val,
+      });
+
+      this.setState(updateState() as Pick<State, keyof State>, callback);
+    };
+
+    /**
+     * simpler version would be
+     * 
+      setInput = (setter: keyof State) =>(val:String | null, callback?: ()=> void)=>{
+        this.setState({
+          [setter]: val
+        } as Pick<State, keyof State>, callback);
+      }
+     */
+  };
+
   handleLogin = async () => {
     const {email, password} = this.state;
 
@@ -34,14 +60,18 @@ class Login extends Component<LoginProps, State> {
 
       if (loginService.isAuthenticated()) {
         console.log(`authenticated!`);
-        this.setState({error: null}, () => {
+        // this.setState({error: null}, () => {
+        //   this.props.navigation.navigate('dashboard');
+        // });
+
+        this.setInput('error')(null, () => {
           this.props.navigation.navigate('dashboard');
         });
       }
     } catch (err: any) {
       console.log(`Error: ${err}`);
 
-      this.setState({error: err.message});
+      this.setInput('error')(err.message);
     }
   };
 
@@ -65,7 +95,7 @@ class Login extends Component<LoginProps, State> {
               style={[styles.textInput]}
               placeholder="Alamat email kamu"
               placeholderTextColor="#b2b2b2"
-              onChangeText={val => this.setState({email: val})}
+              onChangeText={this.setInput('email')}
               value={email}
             />
           </View>
@@ -76,7 +106,7 @@ class Login extends Component<LoginProps, State> {
               style={[styles.textInput]}
               placeholder="kata sandi kamu"
               placeholderTextColor="#b2b2b2"
-              onChangeText={val => this.setState({password: val})}
+              onChangeText={this.setInput('password')}
               value={password}
             />
             <TouchableOpacity style={styles.iconSandi}>

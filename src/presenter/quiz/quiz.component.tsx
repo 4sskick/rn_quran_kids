@@ -1,5 +1,5 @@
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
-import {RootStackBottomTabParamList} from '../../../util/IRootParamsNavigation';
+import {RootStackBottomTabParamList} from '../../util/IRootParamsNavigation';
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import styles from './quiz.style';
