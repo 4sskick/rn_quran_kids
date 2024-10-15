@@ -8,7 +8,7 @@
     "android_clear": "cd android && ./gradlew clean && cd ../",
     "android_build": "cd android && ./gradlew assembleDebug && cd ../",
     "lint": "eslint .",
-    "start": "node node_modules/react-native-debugger-open/bin/rndebugger-open.js && react-native start",
+    "start": "node node_modules/react-native-debugger-open/bin/rndebugger-open.js && react-native start --reset-cache",
     "test": "jest"
   },
   "dependencies": {
