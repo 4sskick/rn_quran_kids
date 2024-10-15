@@ -1,5 +1,5 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React from 'react';
+import React, { memo } from 'react';
 import {Image, SafeAreaView, TouchableOpacity, View} from 'react-native';
 import {Text} from '@ui-kitten/components';
 import {RootStackParamList} from '../../util/IRootParamsNavigation';
@@ -54,4 +54,4 @@ class Auth extends React.Component<AuthProps> {
   }
 }
 
-export default Auth;
+export default memo(Auth);

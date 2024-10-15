@@ -1,6 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import styles from './header.style';
-import {Component} from 'react';
+import {Component, memo} from 'react';
 
 interface HeaderProps {
   headerText: string;
@@ -29,4 +29,4 @@ class Header extends Component<HeaderProps> {
     );
   }
 }
-export default Header;
+export default memo(Header);

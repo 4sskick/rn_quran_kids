@@ -1,5 +1,5 @@
 import {RootStackBottomTabParamList} from '../../util/IRootParamsNavigation';
-import React from 'react';
+import React, { memo } from 'react';
 import {View, SafeAreaView} from 'react-native';
 import styles from './dashboard.style';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
@@ -33,4 +33,4 @@ class Dashboard extends React.Component<DashboardProps> {
     );
   }
 }
-export default Dashboard;
+export default memo(Dashboard);

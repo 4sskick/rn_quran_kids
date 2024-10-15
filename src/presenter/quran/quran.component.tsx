@@ -1,6 +1,6 @@
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {RootStackBottomTabParamList} from '../../util/IRootParamsNavigation';
-import React from 'react';
+import React, { memo } from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
 import styles from './quran.style';
 
@@ -18,4 +18,4 @@ class Quran extends React.Component<QuranProps> {
     );
   }
 }
-export default Quran;
+export default memo(Quran);

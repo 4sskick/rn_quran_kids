@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
+import React, { memo } from 'react';
 import {auth, forgotpassword, login, register} from '..';
 import {RootStackParamList} from '../../util/IRootParamsNavigation';
 import DashboardStackNav from './DashboardStack';
@@ -22,4 +22,4 @@ class AuthStackNav extends React.Component<Props> {
   }
 }
 
-export default AuthStackNav;
+export default memo(AuthStackNav);

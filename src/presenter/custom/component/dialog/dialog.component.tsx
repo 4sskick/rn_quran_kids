@@ -1,4 +1,4 @@
-import {PureComponent} from 'react';
+import {memo, PureComponent} from 'react';
 import {Button, Modal, Text, TouchableOpacity, View} from 'react-native';
 import styles from './dialog.style';
 
@@ -49,4 +49,4 @@ class Dialog extends PureComponent<DialogProps, State> {
   }
 }
 
-export default Dialog;
+export default memo(Dialog);

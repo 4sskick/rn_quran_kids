@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import {Component, memo} from 'react';
 import {Image, SafeAreaView, TextInput, TouchableOpacity} from 'react-native';
 import styles from './login.style';
 import {View, Text} from 'react-native';
@@ -145,4 +145,4 @@ class Login extends Component<LoginProps, State> {
   }
 }
 
-export default Login;
+export default memo(Login);

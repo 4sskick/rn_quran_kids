@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {RootStackBottomTabParamList} from '../../util/IRootParamsNavigation';
-import React from 'react';
+import React, { memo } from 'react';
 import {home, quiz, quran} from '..';
 import {Image} from 'react-native';
 
@@ -79,4 +79,4 @@ class DashboardStackNav extends React.Component<props> {
     );
   }
 }
-export default DashboardStackNav;
+export default memo(DashboardStackNav);

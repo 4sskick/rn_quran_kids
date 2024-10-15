@@ -1,6 +1,6 @@
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {RootStackBottomTabParamList} from '../../util/IRootParamsNavigation';
-import React from 'react';
+import React, { memo } from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import styles from './quiz.style';
 
@@ -18,4 +18,4 @@ class Quiz extends React.Component<QuizProps> {
     );
   }
 }
-export default Quiz;
+export default memo(Quiz);

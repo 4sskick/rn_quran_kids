@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import {ApplicationProvider} from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 import {NavigationContainer} from '@react-navigation/native';
@@ -33,7 +33,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default memo(App);
 
 /**
   surah_read: 'Al-Fatihah';

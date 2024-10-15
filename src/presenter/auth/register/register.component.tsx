@@ -1,5 +1,5 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {Component, ReactNode} from 'react';
+import {Component, memo, ReactNode} from 'react';
 import {RootStackParamList} from '../../../util/IRootParamsNavigation';
 import {
   Image,
@@ -146,4 +146,4 @@ class Register extends Component<RegisterProps, State> {
   }
 }
 
-export default Register;
+export default memo(Register);

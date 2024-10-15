@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import {Component} from 'react';
+import {Component, memo} from 'react';
 import {HeaderBackground} from '../../custom/component';
 import styles from './forgot.style';
 import {RootStackParamList} from '../../../util/IRootParamsNavigation';
@@ -105,4 +105,4 @@ class ForgotPassword extends Component<ForgotPasswordProps, State> {
   }
 }
 
-export default ForgotPassword;
+export default memo(ForgotPassword);
