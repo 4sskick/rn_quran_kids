@@ -32,6 +32,16 @@ class Register extends Component<RegisterProps, State> {
     };
   }
 
+  setInput = (setter: keyof State) => {
+    return (val: String | null, callback?: () => void) => {
+      const updateState = () => ({
+        [setter]: val,
+      });
+
+      this.setState(updateState() as Pick<State, keyof State>, callback);
+    };
+  };
+
   render() {
     const {route, navigation} = this.props;
     const {email, password, retype_password} = this.state;
@@ -51,7 +61,8 @@ class Register extends Component<RegisterProps, State> {
               style={[styles.textInput]}
               placeholder="Alamat email kamu"
               placeholderTextColor="#b2b2b2"
-              onChangeText={val => this.setState({email: val})}
+              // onChangeText={val => this.setState({email: val})}
+              onChangeText={this.setInput('email')}
               value={email}
             />
           </View>
@@ -62,7 +73,8 @@ class Register extends Component<RegisterProps, State> {
               style={[styles.textInput]}
               placeholder="kata sandi kamu"
               placeholderTextColor="#b2b2b2"
-              onChangeText={val => this.setState({password: val})}
+              // onChangeText={val => this.setState({password: val})}
+              onChangeText={this.setInput('password')}
               value={password}
             />
             <TouchableOpacity style={styles.iconSandi}>
@@ -83,7 +95,8 @@ class Register extends Component<RegisterProps, State> {
               style={[styles.textInput]}
               placeholder="ulangi kata sandi kamu"
               placeholderTextColor="#b2b2b2"
-              onChangeText={val => this.setState({retype_password: val})}
+              // onChangeText={val => this.setState({retype_password: val})}
+              onChangeText={this.setInput('retype_password')}
               value={retype_password}
             />
             <TouchableOpacity style={styles.iconSandi}>

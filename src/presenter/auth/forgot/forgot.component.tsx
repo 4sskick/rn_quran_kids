@@ -34,6 +34,16 @@ class ForgotPassword extends Component<ForgotPasswordProps, State> {
     };
   }
 
+  setInput = (setter: keyof State) => {
+    return (val: String | boolean | null, callback?: () => void) => {
+      const updateState = () => ({
+        [setter]: val,
+      });
+
+      this.setState(updateState() as Pick<State, keyof State>, callback);
+    };
+  };
+
   handleForgotPassword = async () => {
     const {email} = this.state;
     try {
@@ -61,7 +71,8 @@ class ForgotPassword extends Component<ForgotPasswordProps, State> {
               style={[styles.textInput]}
               placeholder="Alamat email kamu"
               placeholderTextColor="#b2b2b2"
-              onChangeText={val => this.setState({email: val})}
+              // onChangeText={val => this.setState({email: val})}
+              onChangeText={this.setInput('email')}
               value={email}
             />
           </View>

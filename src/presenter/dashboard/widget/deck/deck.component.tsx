@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {RootStackBottomTabParamList} from '../../../../util/IRootParamsNavigation';
-import {AppDataContext} from '../../../../../App';
+import {AppDataContext, QAppData} from '../../../../../App';
 import {Layout} from '@ui-kitten/components';
 
 interface DeckProps
@@ -25,7 +25,7 @@ class Deck extends React.Component<DeckProps> {
   }
 
   componentDidMount(): void {
-    this.unsubscribe = AppDataContext.Consumer(appData => {
+    this.unsubscribe = AppDataContext.Consumer((appData: QAppData) => {
       this.setState({appData: {...appData}});
     });
   }

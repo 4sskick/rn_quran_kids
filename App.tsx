@@ -80,7 +80,7 @@ export const enrichDecksWithPlaceholder = (decks: QEnrichedDecks): QDecks => {
 };
 
 //main data structure to be exported which will use as context
-type QAppData = {
+export type QAppData = {
   decksData: QDecks;
   setDecksData: (value: QDecks) => void;
 };
